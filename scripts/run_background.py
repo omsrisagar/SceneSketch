@@ -20,8 +20,10 @@ import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--im_name", type=str, default="")
-parser.add_argument("--layers", type=str, default="2,8,11")
-parser.add_argument("--divs", type=str, default="0.35,0.5,0.85")
+#parser.add_argument("--layers", type=str, default="2,8,11")
+#parser.add_argument("--divs", type=str, default="0.35,0.5,0.85")
+parser.add_argument("--layers", type=str, default="2")
+parser.add_argument("--divs", type=str, default="0.35")
 args = parser.parse_args()
 
 layers = [int(l) for l in args.layers.split(",")]
@@ -31,9 +33,13 @@ divs = [float(d) for d in args.divs.split(",")]
 start_time_fidelity_b = time.time()
 for l in layers:
     if not os.path.exists(f"./results_sketches/{args.im_name}/runs/background_l{l}_{args.im_name}_mask/points_mlp.pt"):
+#        num_iter = 1000
+#        if l < 8: # converge fater for shallow layers
+#            num_iter = 600
         sp.run(["python", "scripts/generate_fidelity_levels.py", 
                 "--im_name", args.im_name,
                 "--layer_opt", str(l),
+#		"--num_iter", str(num_iter),
                 "--object_or_background", "background"])
 end_time_fidelity_b = time.time() - start_time_fidelity_b
 

@@ -21,8 +21,10 @@ import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--im_name", type=str, default="")
-parser.add_argument("--layers", type=str, default="2,8,11")
-parser.add_argument("--divs", type=str, default="0.4,0.5,0.9")
+#parser.add_argument("--layers", type=str, default="2,8,11")
+#parser.add_argument("--divs", type=str, default="0.4,0.5,0.9")
+parser.add_argument("--layers", type=str, default="2")
+parser.add_argument("--divs", type=str, default="0.4")
 args = parser.parse_args()
 
 layers = [int(l) for l in args.layers.split(",")]

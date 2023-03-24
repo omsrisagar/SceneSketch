@@ -1,5 +1,8 @@
 __pycache__/
 output_sketches/
 U2Net_/saved_models/u2net.pth
-results_sketches/ballerina/runs/*
+results_sketches/
+target_images/
 notebooks/*
+lama/big-lama*
+

@@ -57,7 +57,7 @@ def get_clip_loss2(path, layer, object_or_background):
         loss_clip_layer = 1*loss_clip_layer4 + loss_clip_layer
     return best_iter, loss_clip_layer
        
-def get_ratios_dict(path_to_initial_sketches, folder_name_l, layer, im_name, object_or_background, step_size_l, num_ratios=8):        
+def get_ratios_dict(path_to_initial_sketches, folder_name_l, layer, im_name, object_or_background, step_size_l, num_ratios=1):        
     # get the sketch of the given layer, and get L_clip_i 
     svg_filename = get_svg_file(f"{path_to_initial_sketches}/{folder_name_l}")
     seed = get_seed(svg_filename)
